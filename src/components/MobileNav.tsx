@@ -35,7 +35,7 @@ const MobileNav = () => {
           ) : (
             <Button
               onClick={() => loginWithRedirect()}
-              className="flex-1 font-bold bg-orange-500"
+              className="flex-1 font-bold bg-rose-600"
             >
               Log In
             </Button>
