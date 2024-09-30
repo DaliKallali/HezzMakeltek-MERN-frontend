@@ -21,7 +21,10 @@ const CheckoutButton = ({ onCheckout, disabled, isLoading }: Props) => {
 
   const { pathname } = useLocation();
   const navigate = useNavigate();
-
+  const handleCheckout = (userFormData: UserFormData) => {
+    onCheckout(userFormData);
+    navigate("/order-status");
+  };
   const { currentUser, isLoading: isGetUserLoading } = useGetMyUser();
 
   const onLogin = async () => {
@@ -53,7 +56,7 @@ const CheckoutButton = ({ onCheckout, disabled, isLoading }: Props) => {
       <DialogContent className="max-w-[425px] md:min-w-[700px] bg-gray-50">
         <ProfileForm
           currentUser={currentUser}
-          onSave={onCheckout}
+          onSave={handleCheckout}
           isLoading={isGetUserLoading}
           title="Confirm Deliery Details"
           buttonText="Confirm Order"
